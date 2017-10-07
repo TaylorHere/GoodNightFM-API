@@ -120,10 +120,9 @@ class SinglePage(View):
         if class_type == 'origin':
             return response
         if class_type == 'basic':
-            response = {"data": response}
             return jsonify(response)
         if class_type == 'sqlalchemy':
-            response = {'data': serializer.dump(response)}
+            response = serializer.dump(response)
             return jsonify(response)
 
     def dispatch_request(self, *args, **kwargs):
